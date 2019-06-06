@@ -116,22 +116,21 @@ navItems.forEach(element => {
 //
 //STRETCH - TIMER
 //
-let startButton = CTAButton;
-let timerText = headerText;
 let time = 0;
+let maxTime = 10000
 let timerController;
 
-startButton.addEventListener("click", startTimer);
-startButton.textContent = "Timer Start/reset"
+CTAButton.addEventListener("click", startTimer);
+
 
 function timer(){
-  if(time < 10000){
+  if(time < maxTime){
     time += 10;
-    timerText.textContent = `${time/1000}`;
+    headerText.textContent = `${time/1000}`;
   }
   else{
-    timerText.style.color = "red"
-    timerText.textContent = `${time/1000}`;
+    headerText.style.color = "red"
+    headerText.textContent = `${time/1000}`;
     stopTimer();
   }
 }
@@ -141,8 +140,9 @@ function stopTimer(){
 }
 
 function startTimer(){
-  console.log("ran");
+  CTAButton.textContent = "Timer Start/Reset"
   time = 0;
+  headerText.style.color = "black"
   clearInterval(timerController);
   timerController = setInterval(timer,10);
 }
