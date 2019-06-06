@@ -121,6 +121,7 @@ let maxTime = 10000
 let timerController;
 
 CTAButton.addEventListener("click", startTimer);
+;
 
 
 function timer(){
@@ -140,6 +141,8 @@ function stopTimer(){
 }
 
 function startTimer(){
+  headerText.style.width = "200px"
+  headerText.style.textAlign = "left";
   CTAButton.textContent = "Timer Start/Reset"
   time = 0;
   headerText.style.color = "black"
