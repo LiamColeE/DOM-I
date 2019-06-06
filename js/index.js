@@ -83,7 +83,7 @@ let middleImg = document.querySelector(".main-content img");
 middleImg.setAttribute('src', siteContent["main-content"]["middle-img-src"])
 
 // 
-// contact
+// CONTACT
 // 
 let contacth4 = document.querySelector(".contact h4");
 contacth4.textContent = siteContent["contact"]["contact-h4"];
@@ -94,7 +94,7 @@ contactp[1].textContent = siteContent["contact"]["phone"];
 contactp[2].textContent = siteContent["contact"]["email"];
 
 // 
-// footer
+// FOOTER
 // 
 let copyright = document.querySelector("footer p");
 copyright.textContent = siteContent["footer"]["copyright"];
@@ -113,6 +113,25 @@ navItems.forEach(element => {
   element.style.color = "lightgreen";
 });
 
+//
+//STRETCH - TIMER
+//
+let timerText = nav.appendChild(document.createElement('a'));
+console.log(timerText);
+let time = 0;
+let timerController = setInterval(timer,10);
 
+function timer(){
+  if(time < 10000){
+    time += 10;
+    timerText.textContent = `${time/1000}`;
+  }
+  else{
+    timerText.textContent = `${time/1000}`;
+    stopTimer();
+  }
+}
 
-
+function stopTimer(){
+  clearInterval(timerController);
+}
