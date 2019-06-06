@@ -46,7 +46,7 @@ logo.setAttribute('src', siteContent["nav"]["img-src"])
 
 let navItems = Array.from(document.getElementsByTagName("a"));
 for(let i = 0; i < navItems.length; i++){
-  navItems[i].textContent = siteContent["nav"][`nav-item-${i}`];
+  navItems[i].textContent = siteContent["nav"][`nav-item-${i+1}`];
 }
 
 // 
@@ -98,4 +98,21 @@ contactp[2].textContent = siteContent["contact"]["email"];
 // 
 let copyright = document.querySelector("footer p");
 copyright.textContent = siteContent["footer"]["copyright"];
+
+//
+//Task 3
+//
+let nav = document.querySelector("nav");
+nav.appendChild(document.createElement('a')).textContent = "append";
+nav.prepend(document.createElement('a'));
+document.querySelector("a").textContent = "prepend";
+
+navItems = Array.from(document.getElementsByTagName("a"));
+
+navItems.forEach(element => {
+  element.style.color = "lightgreen";
+});
+
+
+
 
