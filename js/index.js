@@ -116,10 +116,13 @@ navItems.forEach(element => {
 //
 //STRETCH - TIMER
 //
-let timerText = nav.appendChild(document.createElement('a'));
-console.log(timerText);
+let startButton = CTAButton;
+let timerText = headerText;
 let time = 0;
-let timerController = setInterval(timer,10);
+let timerController;
+
+startButton.addEventListener("click", startTimer);
+startButton.textContent = "Timer Start/reset"
 
 function timer(){
   if(time < 10000){
@@ -127,6 +130,7 @@ function timer(){
     timerText.textContent = `${time/1000}`;
   }
   else{
+    timerText.style.color = "red"
     timerText.textContent = `${time/1000}`;
     stopTimer();
   }
@@ -134,4 +138,11 @@ function timer(){
 
 function stopTimer(){
   clearInterval(timerController);
+}
+
+function startTimer(){
+  console.log("ran");
+  time = 0;
+  clearInterval(timerController);
+  timerController = setInterval(timer,10);
 }
